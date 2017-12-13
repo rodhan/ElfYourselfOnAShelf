@@ -13,5 +13,8 @@ A basic Xcode project to demonstrate some ARKit capabilities at the Dublin Digit
 
 [How to add Image as texture in SceneKit - Stack Overflow](https://stackoverflow.com/questions/36065957/want-to-add-image-as-texture-in-scenekit-ios)
 
+![Image](./IMG_3403.PNG)
+
+![Image](./IMG_3404.PNG)
 
 
