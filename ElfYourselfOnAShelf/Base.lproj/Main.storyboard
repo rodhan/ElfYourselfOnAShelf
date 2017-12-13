@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kWE-Ty-nim">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First View Controller-->
+        <scene sceneID="gBK-Be-rBQ">
+            <objects>
+                <viewController id="kWE-Ty-nim" customClass="FirstViewController" customModule="Test10" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SXZ-MP-d0r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFK-Ff-cAw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Face" translatesAutoresizingMaskIntoConstraints="NO" id="ftG-3U-Nso">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HA6-T5-jY0">
+                                <rect key="frame" x="90" y="512" width="195" height="92"/>
+                                <color key="backgroundColor" red="0.83529399999999998" green="0.33725500000000003" blue="0.30588199999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Next &gt;"/>
+                                <connections>
+                                    <action selector="showNextView:" destination="kWE-Ty-nim" eventType="touchUpInside" id="Nld-0J-eoO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FJ8-Js-ZR9" firstAttribute="bottom" secondItem="HA6-T5-jY0" secondAttribute="bottom" constant="63" id="AwO-ZK-yt1"/>
+                            <constraint firstItem="HA6-T5-jY0" firstAttribute="top" secondItem="FJ8-Js-ZR9" secondAttribute="top" constant="492" id="FBJ-JL-N4T"/>
+                            <constraint firstItem="HA6-T5-jY0" firstAttribute="centerX" secondItem="SXZ-MP-d0r" secondAttribute="centerX" id="Gag-Uo-g4J"/>
+                            <constraint firstItem="wFK-Ff-cAw" firstAttribute="top" secondItem="SXZ-MP-d0r" secondAttribute="top" id="crX-dY-K6j"/>
+                            <constraint firstItem="wFK-Ff-cAw" firstAttribute="centerX" secondItem="HA6-T5-jY0" secondAttribute="centerX" id="eIN-a6-m84"/>
+                            <constraint firstItem="HA6-T5-jY0" firstAttribute="leading" secondItem="FJ8-Js-ZR9" secondAttribute="leading" constant="90" id="hJg-Wq-Itq"/>
+                            <constraint firstItem="wFK-Ff-cAw" firstAttribute="leading" secondItem="SXZ-MP-d0r" secondAttribute="leading" id="obo-Kz-NUL"/>
+                            <constraint firstItem="wFK-Ff-cAw" firstAttribute="bottom" secondItem="FJ8-Js-ZR9" secondAttribute="bottom" id="w0W-bh-H6m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FJ8-Js-ZR9"/>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="wFK-Ff-cAw" id="5oe-ac-q6p"/>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="showARView" id="4ml-1X-FqQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oIF-Qy-6og" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-514.39999999999998" y="89.505247376311857"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="Test10" customModuleProvider="target" sceneMemberID="viewController">
+                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </arscnView>
+                    <connections>
+                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="90"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Face" width="465" height="659"/>
+    </resources>
+</document>
