@@ -64,24 +64,17 @@ class FirstViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         cameraOutput.capturePhoto(with: settings, delegate: self)
     }
-    
-    func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
-        
+
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+
         if let error = error {
-            print("error occure : \(error.localizedDescription)")
+            print("error occured: \(error.localizedDescription)")
         }
-        
-        if  let sampleBuffer = photoSampleBuffer,
-            let previewBuffer = previewPhotoSampleBuffer,
-            let dataImage =  AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer:  sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
-            print(UIImage(data: dataImage)?.size as Any)
-            
-            let dataProvider = CGDataProvider(data: dataImage as CFData)
-            let cgImageRef: CGImage! = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
-            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImage.Orientation.right)
-            
+
+        if let data = photo.fileDataRepresentation(),
+            let image = UIImage(data: data) {
             capturedImage = image
-            
+
             performSegue(withIdentifier: "showARView", sender: self)
         } else {
             print("Error capturing photo")
